@@ -1,0 +1,29 @@
+﻿
+@model List<BookStore.Models.Book>
+
+<h1>Books</h1>
+
+<table style="border-collapse: collapse;">
+    <tr>
+        <th style="border: 1px solid black; padding: 10px;">Id</th>
+        <th style="border: 1px solid black; padding: 10px;">Title</th>
+        <th style="border: 1px solid black; padding: 10px;">Price</th>
+    </tr>
+
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td style="border: 1px solid black; padding: 10px;">@book.Id</td>
+            <td style="border: 1px solid black; padding: 10px;">@book.Title</td>
+            <td style="border: 1px solid black; padding: 10px;">@book.Price</td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@book.Id">Edit</a>
+
+                <a asp-action="Delete" asp-route-id="@book.Id">Delete</a>
+            </td>
+
+        </tr>
+
+    }
+</table>
